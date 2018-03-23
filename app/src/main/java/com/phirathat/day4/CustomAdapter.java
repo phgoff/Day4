@@ -33,11 +33,11 @@ public class CustomAdapter extends BaseAdapter {
     }
 
     public Object getItem(int position) {
-        return null;
+        return strName[position];
     }
 
     public long getItemId(int position) {
-        return 0;
+        return position;
     }
 
     // get view in order to stick to the List in main activity

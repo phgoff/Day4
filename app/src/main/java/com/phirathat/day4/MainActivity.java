@@ -29,6 +29,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        int[] resId = { R.drawable.aerithgainsborough
+                , R.drawable.barretwallace, R.drawable.caitsith
+                , R.drawable.cidhighwind, R.drawable.cloudstrife
+                 };
+
+        String[] list = { "Aerith Gainsborough", "Barret Wallace", "Cait Sith"
+                , "Cid Highwind", "Cloud Strife", "RedXIII", "Sephiroth"
+                , "Tifa Lockhart", "Vincent Valentine", "Yuffie Kisaragi"
+                , "ZackFair" };
+
+        CustomAdapter adapter = new CustomAdapter(getApplicationContext(), list, resId);
+
+
         final TextView tv1 = findViewById(R.id.tv1);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         actionBarDrawerToggle = new ActionBarDrawerToggle(MainActivity.this,
@@ -49,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String  itemValue    = (String) mListView.getItemAtPosition(position);
-
+                mDrawerLayout.closeDrawers();
                 tv1.setText("Position :"+ position+"  ListItem : " +itemValue);
 
 //                Toast.makeText(getApplicationContext(),
