@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
-    private String[] mDrawerTitle = {"Main", "Custom LIST","About","Help"};
+    private String[] mDrawerTitle = {"Main","Heros","About","Help"};
     private ListView mListView;
     private TextView tv1;
 
@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final TextView tv1 = findViewById(R.id.tv1);
+        //final TextView tv1 = findViewById(R.id.tv1);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         actionBarDrawerToggle = new ActionBarDrawerToggle(MainActivity.this,
                 mDrawerLayout,
@@ -53,11 +53,11 @@ public class MainActivity extends AppCompatActivity {
                 String  itemValue    = (String) mListView.getItemAtPosition(position);
                 mDrawerLayout.closeDrawers();
                 switch (position) {
-                    case 1:
+                    case 0:
                         Intent intent= new Intent(MainActivity.this, Activity2.class);
                         startActivity(intent);
                         break;
-                    case 2:
+                    case 1:
                         Intent intent2= new Intent(MainActivity.this, Activity2.class);
                         startActivity(intent2);
                         break;
@@ -71,27 +71,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-        //Custom ListView
-//        int[] resId = { R.drawable.aerithgainsborough
-//                , R.drawable.barretwallace, R.drawable.caitsith
-//                , R.drawable.cidhighwind, R.drawable.cloudstrife
-//        };
-
-//        String[] list = { "Aerith Gainsborough", "Barret Wallace", "Cait Sith"
-//                , "Cid Highwind", "Cloud Strife", "RedXIII", "Sephiroth"
-//                , "Tifa Lockhart", "Vincent Valentine", "Yuffie Kisaragi"
-//                , "ZackFair" };
-//        CustomAdapter customadapter = new CustomAdapter(getApplicationContext(), list, resId);
-//        ListView listView = (ListView)findViewById(R.id.listView1);
-//        listView.setAdapter(customadapter);
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long row_id) {
-//                TextView textView = (TextView)view.findViewById(R.id.textView1);
-//                System.out.println( textView.getText());
-//                Toast.makeText(getApplicationContext(), "Clicked on item:" +  position , Toast.LENGTH_SHORT).show();
-//            }
-//      });
     }
 
     @Override
