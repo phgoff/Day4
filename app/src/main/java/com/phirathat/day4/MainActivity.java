@@ -1,5 +1,6 @@
 package com.phirathat.day4;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.DrawerLayout;
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
-    private String[] mDrawerTitle = {"New", "File", "Load...", "Open", "Contact"};
+    private String[] mDrawerTitle = {"Custom LIST","TEST"};
     private ListView mListView;
     private TextView tv1;
 
@@ -51,35 +52,46 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String  itemValue    = (String) mListView.getItemAtPosition(position);
                 mDrawerLayout.closeDrawers();
-                tv1.setText("Position :"+ position+"  ListItem : " +itemValue);
-
-//                Toast.makeText(getApplicationContext(),
-//                        "Position :"+ position+"  ListItem : " +itemValue , Toast.LENGTH_SHORT)
-//                        .show();
+                switch (position) {
+                    case 0:
+                        Intent intent= new Intent(MainActivity.this, Activity2.class);
+                        startActivity(intent);
+                        break;
+                    case 1:
+                        Intent intent2= new Intent(MainActivity.this, Activity2.class);
+                        startActivity(intent2);
+                        break;
+                    default:
+                        break;
+                }
+             //   tv1.setText("Position :"+ position+"  ListItem : " +itemValue);
+                Toast.makeText(getApplicationContext(),
+                        "Position :"+ position+"  ListItem : " +itemValue , Toast.LENGTH_SHORT)
+                        .show();
 
             }
         });
 
         //Custom ListView
-        int[] resId = { R.drawable.aerithgainsborough
-                , R.drawable.barretwallace, R.drawable.caitsith
-                , R.drawable.cidhighwind, R.drawable.cloudstrife
-        };
+//        int[] resId = { R.drawable.aerithgainsborough
+//                , R.drawable.barretwallace, R.drawable.caitsith
+//                , R.drawable.cidhighwind, R.drawable.cloudstrife
+//        };
 
-        String[] list = { "Aerith Gainsborough", "Barret Wallace", "Cait Sith"
-                , "Cid Highwind", "Cloud Strife", "RedXIII", "Sephiroth"
-                , "Tifa Lockhart", "Vincent Valentine", "Yuffie Kisaragi"
-                , "ZackFair" };
-        CustomAdapter customadapter = new CustomAdapter(getApplicationContext(), list, resId);
-        ListView listView = (ListView)findViewById(R.id.listView1);
-        listView.setAdapter(customadapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view, int position, long row_id) {
-                TextView textView = (TextView)view.findViewById(R.id.textView1);
-                System.out.println( textView.getText());
-                Toast.makeText(getApplicationContext(), "Clicked on item:" +  position , Toast.LENGTH_SHORT).show();
-            }
-      });
+//        String[] list = { "Aerith Gainsborough", "Barret Wallace", "Cait Sith"
+//                , "Cid Highwind", "Cloud Strife", "RedXIII", "Sephiroth"
+//                , "Tifa Lockhart", "Vincent Valentine", "Yuffie Kisaragi"
+//                , "ZackFair" };
+//        CustomAdapter customadapter = new CustomAdapter(getApplicationContext(), list, resId);
+//        ListView listView = (ListView)findViewById(R.id.listView1);
+//        listView.setAdapter(customadapter);
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long row_id) {
+//                TextView textView = (TextView)view.findViewById(R.id.textView1);
+//                System.out.println( textView.getText());
+//                Toast.makeText(getApplicationContext(), "Clicked on item:" +  position , Toast.LENGTH_SHORT).show();
+//            }
+//      });
     }
 
     @Override
