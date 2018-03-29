@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
-    private String[] mDrawerTitle = {"Custom LIST","TEST"};
+    private String[] mDrawerTitle = {"Main", "Custom LIST","About","Help"};
     private ListView mListView;
     private TextView tv1;
 
@@ -53,11 +53,11 @@ public class MainActivity extends AppCompatActivity {
                 String  itemValue    = (String) mListView.getItemAtPosition(position);
                 mDrawerLayout.closeDrawers();
                 switch (position) {
-                    case 0:
+                    case 1:
                         Intent intent= new Intent(MainActivity.this, Activity2.class);
                         startActivity(intent);
                         break;
-                    case 1:
+                    case 2:
                         Intent intent2= new Intent(MainActivity.this, Activity2.class);
                         startActivity(intent2);
                         break;

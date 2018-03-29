@@ -18,25 +18,25 @@ public class Activity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page2);
 
-        String[] list = { "1", "2", "3","4", "5", "6" };
+        String[] list = { "SuperMan", "Wonder Woman", "The Flash","Iron Man", "Black Panther", "Spiderman","DeadPool" };
         int[] resId = {  R.drawable.image1,
                          R.drawable.image2,
                          R.drawable.image3,
                          R.drawable.image4,
                          R.drawable.image5,
                          R.drawable.image6,
+                         R.drawable.image7
         };
 
-
         CustomAdapter adapter = new CustomAdapter(getApplicationContext(), list, resId);
-
-        ListView listView = (ListView)findViewById(R.id.Clist);
+        final ListView listView = (ListView)findViewById(R.id.Clist);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long row_id) {
 //                TextView textView = (TextView)view.findViewById(R.id.textView1);
 //                System.out.println( textView.getText());
-                Toast.makeText(getApplicationContext(), "Clicked on item:" +  position , Toast.LENGTH_SHORT).show();
+                String  itemValue    = (String) listView.getItemAtPosition(position);
+                Toast.makeText(getApplicationContext(), "You Selected: " +  itemValue , Toast.LENGTH_SHORT).show();
             }
         });
     }
