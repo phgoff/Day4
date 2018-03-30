@@ -11,7 +11,7 @@ import android.widget.Toast;
 /**
  * Created by Ph.GOF on 3/29/2018.
  */
-
+// Custom List View
 public class Activity2 extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {

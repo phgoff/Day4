@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
-    private String[] mDrawerTitle = {"Main","Heros","About","Help"};
+    private String[] mDrawerTitle = {"Main","Heroes","About","Help"};
     private ListView mListView;
     private TextView tv1;
 
@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //final TextView tv1 = findViewById(R.id.tv1);
+        //Drawable Menu
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         actionBarDrawerToggle = new ActionBarDrawerToggle(MainActivity.this,
                 mDrawerLayout,
@@ -46,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, mDrawerTitle);
         mListView.setAdapter(adapter);
-
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -58,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);
                         break;
                     case 1:
-                        Intent intent2= new Intent(MainActivity.this, Activity2.class);
+                        Intent intent2= new Intent(MainActivity.this, RecyclerViewMain.class);
                         startActivity(intent2);
                         break;
                     default:
@@ -68,9 +67,9 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),
                         "Position :"+ position+"  ListItem : " +itemValue , Toast.LENGTH_SHORT)
                         .show();
-
             }
         });
+        // End of Section
     }
 
     @Override
@@ -96,8 +95,6 @@ public class MainActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-
-
     }
 
     //Hamburger
@@ -112,6 +109,5 @@ public class MainActivity extends AppCompatActivity {
         super.onPostCreate(savedInstanceState);
         actionBarDrawerToggle.syncState();
     }
-
 
 }
