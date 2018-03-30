@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,9 +22,10 @@ public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
-    private String[] mDrawerTitle = {"Main","Heroes","About","Help"};
+    private String[] mDrawerTitle = {"Main","Heroes","Page3","Help"};
     private ListView mListView;
     private TextView tv1;
+    private Button btnenter;
 
 
     @Override
@@ -40,9 +42,7 @@ public class MainActivity extends AppCompatActivity {
         mDrawerLayout.addDrawerListener(actionBarDrawerToggle);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         mListView = (ListView) findViewById(R.id.drawer);
-
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, mDrawerTitle);
         mListView.setAdapter(adapter);
@@ -60,6 +60,10 @@ public class MainActivity extends AppCompatActivity {
                         Intent intent2= new Intent(MainActivity.this, RecyclerViewMain.class);
                         startActivity(intent2);
                         break;
+                    case 2:
+                        Intent intent3= new Intent(MainActivity.this, Activity3.class);
+                        startActivity(intent3);
+                        break;
                     default:
                         break;
                 }
@@ -70,6 +74,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         // End of Section
+        btnenter = findViewById(R.id.btnenter);
+        btnenter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intententer = new Intent(MainActivity.this,Activity3.class);
+                Bundle b1 = new Bundle();
+                b1.putString("1","TEST1");
+               intententer.putExtra("TESTPUT",b1);
+               startActivity(intententer);
+            }
+        });
     }
 
     @Override
